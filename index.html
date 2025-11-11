@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Framtid i Nord - Mini Theme Editor</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="link-bar">
+      <div class="input-group">
+        <label for="article-url">Paste article link here</label>
+        <input
+          type="url"
+          id="article-url"
+          placeholder="https://www.framtidinord.no/preview/..."
+          autocomplete="off"
+        />
+      </div>
+      <div class="toolbar">
+        <button id="load-article" type="button">Load article</button>
+        <button id="reset-theme" type="button">Reset</button>
+      </div>
+      <small id="preview-status" role="status" aria-live="polite"></small>
+    </header>
+
+    <main class="workspace">
+      <section class="control-panel" aria-label="Style controls">
+        <form id="theme-form">
+          <details class="control-card">
+            <summary>Vertical fade gallery</summary>
+            <div class="control-body">
+              <label>
+                Caption text color
+                <input type="color" data-key="captionColor" />
+              </label>
+              <label>
+                Caption background color
+                <input type="color" data-key="captionBg" />
+              </label>
+              <label class="range">
+                Background opacity
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="5"
+                  data-key="captionBgOpacity"
+                  data-display="opacity"
+                />
+                <output></output>
+              </label>
+              <label class="range">
+                Caption border radius
+                <input
+                  type="range"
+                  min="0"
+                  max="10"
+                  step="1"
+                  data-key="borderRadius"
+                  data-display="radius"
+                />
+                <output></output>
+              </label>
+              <label class="toggle">
+                <input type="checkbox" data-key="boldCaption" />
+                Bold caption text
+              </label>
+              <label class="range">
+                Vertical padding (base 3px)
+                <input
+                  type="range"
+                  min="-3"
+                  max="3"
+                  step="1"
+                  data-key="paddingYDelta"
+                  data-display="paddingY"
+                />
+                <output></output>
+              </label>
+              <label class="range">
+                Horizontal padding (base 7px)
+                <input
+                  type="range"
+                  min="-3"
+                  max="3"
+                  step="1"
+                  data-key="paddingXDelta"
+                  data-display="paddingX"
+                />
+                <output></output>
+              </label>
+            </div>
+          </details>
+        </form>
+
+        <section class="css-output">
+          <div class="output-header">
+            <div>
+              <h2>Generated style tag</h2>
+              <p>Paste this inside the article.</p>
+            </div>
+            <button id="copy-css" type="button">Copy</button>
+          </div>
+          <textarea id="css-output" readonly spellcheck="false"></textarea>
+        </section>
+      </section>
+
+      <section class="preview" aria-label="Live preview">
+        <iframe id="article-preview" title="Article preview"></iframe>
+      </section>
+    </main>
+
+    <template id="placeholder-article">
+      <html>
+        <head>
+          <base href="https://www.framtidinord.no/" />
+          <style>
+            body {
+              font-family: "Inter", system-ui, sans-serif;
+              background: #f1f5f9;
+              color: #0f172a;
+              margin: 0;
+              padding: 2rem;
+            }
+            .placeholder {
+              max-width: 760px;
+              margin: 0 auto;
+              background: #fff;
+              border-radius: 24px;
+              padding: 2rem;
+              box-shadow: 0 30px 70px rgba(15, 23, 42, 0.12);
+            }
+            h1 {
+              margin-top: 0.5rem;
+            }
+            .gallery,
+            .whoiswho {
+              border-radius: 18px;
+              padding: 1.5rem;
+              background: #f8fafc;
+              margin-block: 1.5rem;
+            }
+            .captions {
+              background: rgba(2, 6, 23, 0.85);
+              color: #fff;
+              padding: 0.8rem 1rem;
+              border-radius: 10px;
+              display: inline-flex;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="placeholder Article">
+            <p class="eyebrow">Preview will appear here</p>
+            <h1>Paste an article URL to get started</h1>
+            <p>
+              We will replace this placeholder with the article fetched from framtidinord.no, inject a
+              <code>&lt;base&gt;</code> tag so that assets resolve correctly, and then apply your CSS overrides live.
+            </p>
+            <div class="gallery media fade-gallery intention-vertical-fade">
+              <div class="captions">
+                <p class="caption"><span>Image description</span></p>
+              </div>
+            </div>
+            <div class="whoiswho richType-who-is-who">
+              <h2>Who is who title</h2>
+              <p>Who is who description</p>
+            </div>
+          </div>
+        </body>
+      </html>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
