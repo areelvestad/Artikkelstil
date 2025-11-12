@@ -1,0 +1,40 @@
+/* Viktige CSS-stiler for artikler */
+
+/* Vertical fade gallery */
+
+.fade-gallery .content .caption span:not(:empty) {
+  --background-caption-fade-gallery: rgba(233, 233, 233, 0.8);
+  border-radius: 5px;
+  font-weight: 400;
+  padding: 3px 7px;
+}
+
+.fade-gallery .content .caption {
+  color: var(--color-white);
+  font-family: var(--font-system);
+}
+
+/* Artikkelbakgrunn */
+
+/* Subtittel */
+
+/* Who is who */
+
+/* Faktaboks */
+
+.custom.navigation-feature #page .Header.headerFixed .mainmenu,
+.navigation-custom.navigation-magasin #page .Header.activeSubmenu .mainmenu,
+.navigation-custom.navigation-magasin #page .Header.headerFixed .mainmenu {
+  background: red !important;
+}
+
+/* mark */
+
+mark {
+    --color-background: #fafab5;
+    background: var(--color-background);
+    color: var(--color-text);
+}
+
+
+** Resete farger osv
