@@ -6,6 +6,7 @@
   --panel: #ffffff;
   --panel-border: rgba(15, 23, 42, 0.08);
   --panel-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  --space: 1rem;
 }
 
 *,
@@ -20,6 +21,7 @@ body {
   background: radial-gradient(circle at top, #dfe7fb, #eef2fb 70%);
   color: #0f172a;
 }
+
 
 .link-bar {
   display: flex;
@@ -72,14 +74,6 @@ body {
   color: #5b6475;
 }
 
-.workspace {
-  display: grid;
-  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
-  gap: 1.25rem;
-  padding: 0 1.5rem 1.5rem;
-  align-items: start;
-}
-
 .control-panel {
   display: flex;
   flex-direction: column;
@@ -125,8 +119,8 @@ details.control-card[open] summary::after {
   padding: 0 1.2rem 1.2rem;
 }
 .workspace {
-  display: grid;
-  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  width: 100%;
+  display: flex;
   gap: var(--space);
   padding: 0 var(--space) var(--space);
   align-items: flex-start;
@@ -163,6 +157,28 @@ label {
   color: #0f172a;
 }
 
+.color-control span {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.color-input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.color-input button {
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  background: rgba(15, 23, 42, 0.05);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0f172a;
+}
+
 label.range {
   gap: 0.3rem;
 }
@@ -175,10 +191,10 @@ label.toggle {
 
 input[type="color"] {
   height: 44px;
-  border-radius: 12px;
-  border: 1px solid rgba(15, 23, 42, 0.2);
   padding: 0;
-  background: #fff;
+  width: 100%;
+  border: none;
+  background: none;
 }
 
 input.disabled {
@@ -240,6 +256,10 @@ label.range output {
   color: rgba(248, 250, 252, 0.6);
 }
 
+.output-header a {
+  color: rgba(248, 250, 252, 0.6);
+}
+
 #copy-css {
   border: none;
   background: #0ea5e9;
@@ -251,36 +271,17 @@ label.range output {
 }
 
 .preview {
-  background: #fff;
-  border-radius: 24px;
+  width: 100%;
+  background: #fafafa;
+  border-radius: 24px 0 0 0;
   box-shadow: var(--panel-shadow);
   overflow: hidden;
+  display: block;
+  height: 100%;
 }
 
 #article-preview {
   width: 100%;
-  height: clamp(520px, 65vh, 900px);
+  height: clamp(520px, 95vh, 1030px);
   border: none;
-  background: #f1f5f9;
-}
-
-@media (max-width: 1000px) {
-  .workspace {
-    grid-template-columns: 1fr;
-  }
-
-  .link-bar {
-    grid-template-columns: 1fr;
-  }
-
-  .button-row {
-    justify-content: flex-start;
-  }
-}
-
-@media (max-width: 640px) {
-  .toolbar {
-    flex-direction: column;
-    align-items: stretch;
-  }
 }

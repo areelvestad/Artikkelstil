@@ -1,0 +1,3 @@
+To-do: 
+* Endre bildetekst farge / fjern bakgrunn
+* Endre faktaboks farger / fjern bakgrunn 

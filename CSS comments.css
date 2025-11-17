@@ -1,40 +1,127 @@
 /* Viktige CSS-stiler for artikler */
 
-/* Vertical fade gallery */
+/* Artikkelbakgrunn og tekst */
+:root {
+  --theme-bg-light: ; /* <-- article background in light mode*/
+  --theme-bg-dark: ; /* <-- article background in dark mode*/
+  --theme-txt-light: ; /* <-- text color in light mode*/
+  --theme-txt-dark: ; /* <-- text color in dark mode*/
 
-.fade-gallery .content .caption span:not(:empty) {
-  --background-caption-fade-gallery: rgba(233, 233, 233, 0.8);
-  border-radius: 5px;
-  font-weight: 400;
-  padding: 3px 7px;
+  --color-background: var(--theme-bg-light)!important;
+  --color-text: var(--theme-txt-light)!important;
 }
 
-.fade-gallery .content .caption {
-  color: var(--color-white);
-  font-family: var(--font-system);
+@media (prefers-color-scheme: dark) {
+  [data-darkmode="auto"]:root {
+    --color-background: var(--theme-bg-dark) !important;
+    --color-text: var(--theme-txt-dark) !important;
+  }
 }
 
-/* Artikkelbakgrunn */
+[data-darkmode="on"]:root {
+    --color-background: var(--theme-bg-dark) !important;
+    --color-text: var(--theme-txt-dark) !important;
+}
+
+/* Tittel */
+.article-header h1 {
+  --theme-title-light: ;
+  --theme-title-dark: ;
+  color: var(--theme-title-light)!important;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-darkmode="auto"] .article-header h1 {
+    color: var(--theme-title-dark)!important;
+  }
+}
+
+[data-darkmode="on"] .article-header h1 {
+  color: var(--theme-title-dark)!important;
+}
 
 /* Subtittel */
+.article-body > h2 {
+  --theme-subtitle-light: ;
+  --theme-subtitle-dark: ;
+  color: var(--theme-subtitle-light)!important; 
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-darkmode="auto"] .article-body > h2 {
+    color: var(--theme-subtitle-dark)!important; 
+  }
+}
+
+[data-darkmode="on"] .article-body > h2 {
+  color: var(--theme-subtitle-dark)!important; 
+}
+
+.article-body > h2 {
+  text-align: center;
+}/* <-- Align center */
 
 /* Who is who */
 
+.whoiswho-container {
+  background: none!important;
+  box-shadow: unset!important;
+} 
+.whoiswho-container .media {
+  border: none!important;
+} 
+
+.whoiswho-container .whoiswho p {
+  font-weight: 400;
+} /* <-- whoiswho no background */
+
+.whoiswho-container .whoiswho h2 {
+  --theme-whoiswho-title-light: yellow;
+  --theme-whoiswho-title-dark: red;
+
+  color: var(--theme-whoiswho-title-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-darkmode="auto"] .whoiswho-container .whoiswho h2 {
+  color: var(--theme-whoiswho-title-dark)!important;
+}
+}
+
+[data-darkmode="on"] .whoiswho-container .whoiswho h2 {
+  color: var(--theme-whoiswho-title-dark)!important;
+} /* <-- whoiswho title color */
+
 /* Faktaboks */
 
-.custom.navigation-feature #page .Header.headerFixed .mainmenu,
-.navigation-custom.navigation-magasin #page .Header.activeSubmenu .mainmenu,
-.navigation-custom.navigation-magasin #page .Header.headerFixed .mainmenu {
-  background: red !important;
-}
 
 /* mark */
 
 mark {
-    --color-background: #fafab5;
-    background: var(--color-background);
-    color: var(--color-text);
+  --theme-mark-bg-light: ; 
+  --theme-mark-bg-dark: ;
+  --theme-mark-txt-light: ;
+  --theme-mark-txt-dark: ;
+
+  background: var(--theme-mark-bg-light)!important;
+  color: var(--theme-mark-txt-light)!important;
 }
+
+@media (prefers-color-scheme: dark) {
+[data-darkmode="auto"] mark {
+  background: var(--theme-mark-bg-dark)!important;
+  color: var(--theme-mark-txt-dark)!important;
+}
+}
+
+[data-darkmode="on"] mark {
+background: var(--theme-mark-bg-dark)!important;
+color: var(--theme-mark-txt-dark)!important;
+}
+
+
+/* bildetekst */
+
 
 
 ** Resete farger osv
