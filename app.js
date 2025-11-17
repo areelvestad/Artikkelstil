@@ -408,7 +408,7 @@ async function handleArticleLoad() {
     statusNode.textContent = "Lim inn en artikkellenke først.";
     return;
   }
-  statusNode.textContent = "FHenter artikkel...";
+  statusNode.textContent = "Henter artikkel...";
   try {
     const html = await fetchArticleHtml(url);
     iframe.srcdoc = decorateHtml(html, url);
@@ -438,7 +438,7 @@ async function fetchArticleHtml(url) {
       // Try next proxy.
     }
   }
-  throw new Error("Unable to fetch the article (CORS blocked?).");
+  throw new Error("Kunne ikke laste inn artikkel.");
 }
 
 function decorateHtml(html, baseUrl) {
